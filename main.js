@@ -10,7 +10,7 @@ const { customGapSequence1, customGapSequence2, customGapSequence3 } = require('
 const clearResultFiles = require('./clearResultFiles');
 clearResultFiles(); // Clear result files at the beginning
 
-for (let size = 10000; size <= 250000; size += 10000) {
+for (let size = 10000; size <= 250000; size += 5000) {
     console.log("Sorting array of size:", size);
 
     // Generate the same random array for all gap sequences
@@ -31,11 +31,11 @@ for (let size = 10000; size <= 250000; size += 10000) {
     (() => {
         // Original Gap Sequence
         const gaps = originalGapSequence(size);
-        const arr = [...originalArray]; // Clone array
-        const start = process.hrtime();  // Get the current high-resolution time
+        const arr = [...originalArray]; 
+        const start = process.hrtime(); 
         shellSort(arr, gaps);
-        const end = process.hrtime(start); // Get the time difference
-        const timeInMs = end[0] * 1000 + end[1] / 1e6; // Convert to milliseconds
+        const end = process.hrtime(start); 
+        const timeInMs = end[0] * 1000 + end[1] / 1e6; 
         const string = `${size} ${timeInMs}\n`;
         fs.appendFileSync('resultForOriginal.txt', string);
         if (!isSorted(arr)) throw new Error('Array not sorted (Original Gap Sequence)');
@@ -44,11 +44,11 @@ for (let size = 10000; size <= 250000; size += 10000) {
     (() => {
         // Hibbard Gap Sequence
         const gaps = hibbardGapSequence(size);
-        const arr = [...originalArray]; // Clone array
-        const start = process.hrtime();  // Get the current high-resolution time
+        const arr = [...originalArray]; 
+        const start = process.hrtime(); 
         shellSort(arr, gaps);
-        const end = process.hrtime(start); // Get the time difference
-        const timeInMs = end[0] * 1000 + end[1] / 1e6; // Convert to milliseconds
+        const end = process.hrtime(start); 
+        const timeInMs = end[0] * 1000 + end[1] / 1e6; 
         const string = `${size} ${timeInMs}\n`;
         fs.appendFileSync('resultForHibbard.txt', string);
         if (!isSorted(arr)) throw new Error('Array not sorted (Hibbard Gap Sequence)');
@@ -57,11 +57,11 @@ for (let size = 10000; size <= 250000; size += 10000) {
     (() => {
         // Custom Gap Sequence 1
         const gaps = customGapSequence1(size);
-        const arr = [...originalArray]; // Clone array
-        const start = process.hrtime();  // Get the current high-resolution time
+        const arr = [...originalArray]; 
+        const start = process.hrtime(); 
         shellSort(arr, gaps);
-        const end = process.hrtime(start); // Get the time difference
-        const timeInMs = end[0] * 1000 + end[1] / 1e6; // Convert to milliseconds
+        const end = process.hrtime(start); 
+        const timeInMs = end[0] * 1000 + end[1] / 1e6; 
         const string = `${size} ${timeInMs}\n`;
         fs.appendFileSync('resultsForMyOwn1.txt', string);
         if (!isSorted(arr)) throw new Error('Array not sorted (Custom Gap Sequence 1)');
@@ -70,11 +70,11 @@ for (let size = 10000; size <= 250000; size += 10000) {
     (() => {
         // Custom Gap Sequence 2
         const gaps = customGapSequence2(size);
-        const arr = [...originalArray]; // Clone array
-        const start = process.hrtime();  // Get the current high-resolution time
+        const arr = [...originalArray]; 
+        const start = process.hrtime();  
         shellSort(arr, gaps);
-        const end = process.hrtime(start); // Get the time difference
-        const timeInMs = end[0] * 1000 + end[1] / 1e6; // Convert to milliseconds
+        const end = process.hrtime(start); 
+        const timeInMs = end[0] * 1000 + end[1] / 1e6; 
         const string = `${size} ${timeInMs}\n`;
         fs.appendFileSync('resultsForMyOwn2.txt', string);
         if (!isSorted(arr)) throw new Error('Array not sorted (Custom Gap Sequence 2)');
@@ -83,11 +83,11 @@ for (let size = 10000; size <= 250000; size += 10000) {
     (() => {
         // Custom Gap Sequence 3
         const gaps = customGapSequence3(size);
-        const arr = [...originalArray]; // Clone array
-        const start = process.hrtime();  // Get the current high-resolution time
+        const arr = [...originalArray]; 
+        const start = process.hrtime();  
         shellSort(arr, gaps);
-        const end = process.hrtime(start); // Get the time difference
-        const timeInMs = end[0] * 1000 + end[1] / 1e6; // Convert to milliseconds
+        const end = process.hrtime(start); 
+        const timeInMs = end[0] * 1000 + end[1] / 1e6; 
         const string = `${size} ${timeInMs}\n`;
         fs.appendFileSync('resultsForMyOwn3.txt', string);
         if (!isSorted(arr)) throw new Error('Array not sorted (Custom Gap Sequence 3)');

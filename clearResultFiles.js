@@ -12,7 +12,7 @@ const files = [
 const clear = () => {
     files.forEach(file => {
         try {
-            fs.writeFileSync(file, ''); // Очищаємо файл
+            fs.writeFileSync(file, '');
             console.log(`${file} has been cleared.`);
         } catch (err) {
             console.error(`Error clearing file ${file}:`, err);

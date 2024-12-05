@@ -1,46 +1,45 @@
+// gap = floor(n / (2^k)) - k
 function customGapSequence1(n) {
     const gaps = [];
     let k = 1;
-    let gap = n; // Початкове значення для gap
+    let gap = n; 
     while (gap > 1) {
-        gap = Math.floor(n / (2 ** k)) - k; // Обчислюємо gap
-        if (gap > 1) gaps.push(gap); // Додаємо gap, якщо він більше 1
+        gap = Math.floor(n / (2 ** k)) - k; 
+        if (gap > 1) gaps.push(gap); 
         k++;
     }
-    gaps.push(1); // Завжди додаємо 1 в кінці
+    gaps.push(1); 
     return gaps;
 }
 
-
+//  gap = floor(n / (3^k))
 const customGapSequence2 = (n) => {
     const gaps = [];
-    let k = 0; // Початковий індекс
-    let gap = Math.floor(n / Math.pow(3, k)); // Початковий крок
+    let k = 0; 
+    let gap = Math.floor(n / Math.pow(3, k)); 
 
-    while (gap > 1) { // Продовжуємо, доки gap > 1
+    while (gap > 1) { 
         gaps.push(gap);
         k++;
-        gap = Math.floor(n / Math.pow(3, k)); // Оновлюємо gap
+        gap = Math.floor(n / Math.pow(3, k)); 
     }
 
-    gaps.push(1); // Завжди додаємо 1
+    gaps.push(1); 
     return gaps;
 };
 
-
-
+// gap = floor(gap / 1.5),  first gap = floor(n / 2)
 const customGapSequence3 = (n) => {
     const gaps = [];
-    let gap = Math.floor(n / 2); // Початковий gap
+    let gap = Math.floor(n / 2); 
 
     while (gap > 1) {
-        gaps.push(gap); // Додаємо поточний gap до послідовності
-        gap = Math.floor(gap / 1.5); // Зменшуємо gap у 1.5 рази
+        gaps.push(gap); 
+        gap = Math.floor(gap / 1.5); 
     }
 
-    gaps.push(1); // Завжди додаємо 1
+    gaps.push(1); 
     return gaps;
 };
 
-
-module.exports = {customGapSequence1, customGapSequence2, customGapSequence3}
+module.exports = { customGapSequence1, customGapSequence2, customGapSequence3 };
